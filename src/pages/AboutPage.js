@@ -3,46 +3,25 @@ import React from 'react';
 const AboutPage = () => {
   return (
     <div className="about-page">
-      <h1 className="about-title">About Fake News Gazette</h1>
+      <h1 className="about-title">About Erewash Rag</h1>
       <div className="about-content">
         <p>
-          Welcome to the <strong>Fake News Gazette</strong>, your premier source for satirical local news that's so fake, it's actually real... wait, that doesn't make sense. Let us explain.
+          Welcome to the <strong>Erewash Rag</strong>, your premier source for satirical local news that's so AI slop your Gen Z grandkids would be proud to sit morbidly in front of it.
         </p>
         
         <p>
-          Founded in 2024 by a group of journalists who were tired of reporting on actual news, the Fake News Gazette was born from a simple idea: what if we could make people laugh while pretending to report on local events? The answer, it turns out, is "very well, thank you for asking."
+          Founded in 2025 by a Software Engineer who had ever so slightly too much to drink at the pub, the Erewash Rag was born from the principle of bringing accountability to power and then I got bored and just started throwing stuff together instead
         </p>
-        
-        <p>
-          Our mission is simple: to bring humor to your neighborhood by creating completely fictional stories that sound just plausible enough to make you do a double-take. We're not here to deceive anyone (well, maybe a little), but rather to entertain and provide a much-needed break from the real world's problems.
-        </p>
-        
         <p>
           <strong>Our Editorial Standards:</strong>
         </p>
         
         <ul>
-          <li>All stories must be completely fictional (we're not monsters)</li>
-          <li>Names of real people are never used without permission (and we never get permission)</li>
-          <li>We fact-check nothing (because facts are boring)</li>
-          <li>We prioritize humor over accuracy (obviously)</li>
-          <li>We reserve the right to make up quotes and statistics</li>
-        </ul>
-        
-        <p>
-          <strong>Our Team:</strong>
-        </p>
-        
-        <p>
-          Our crack team of satirical journalists includes:
-        </p>
-        
-        <ul>
-          <li><strong>Scoop McGee</strong> - Chief Investigative Reporter (investigates things that don't exist)</li>
-          <li><strong>Penny Press</strong> - Political Correspondent (covers politics that never happened)</li>
-          <li><strong>Bookie McReader</strong> - Community Affairs (reports on community events that are completely made up)</li>
-          <li><strong>Chef McSlice</strong> - Food & Dining Editor (reviews restaurants that don't exist)</li>
-          <li><strong>Tech McLight</strong> - Technology Reporter (covers tech that hasn't been invented yet)</li>
+          <li>All stories must be completely AI generated (I do knot no how 2 reed or rite and eye do not intend 2 leern)</li>
+          <li>The source of all stories is Erewash Borough Council website or Facebook page (or some other local authority)</li>
+          <li>We fact-check nothing (because facts are dangerously close to farts)</li>
+          <li>We mash everything up with a big teapot I borrowed off my Mother and strain it through an AI model</li>
+          <li>We serve it to you hot and lumpy</li>
         </ul>
         
         <p>
@@ -50,11 +29,11 @@ const AboutPage = () => {
         </p>
         
         <p>
-          Everything you read on this website is completely fictional and intended for entertainment purposes only. Any resemblance to real events, people, or places is purely coincidental (and probably hilarious). We are not responsible for any confusion, laughter, or sudden urges to fact-check our stories.
+          Everything you read on this website is complete AI slop intended for entertainment purposes only. Any resemblance to real events, people, or places is purely coincidental.
         </p>
         
         <p>
-          If you're looking for actual news, we recommend checking out one of those other news websites. You know, the ones that report on real things. Boring, we know, but sometimes you need to know what's actually happening in the world.
+          If you're looking for actual news, we recommend supporting real local journalism like.. er... No hang on I'm sure I can think of one...
         </p>
         
         <p>
@@ -62,16 +41,9 @@ const AboutPage = () => {
         </p>
         
         <p>
-          Have a story idea? Want to complain about our journalistic standards? Think we should be more serious? Send us an email at <em>editor@fakenewsgazette.com</em> (this email address is also fictional, but we appreciate the effort).
+          Have a story idea? Want to complain about our journalistic standards? Think we should be more serious? Send us an email at: <em>i-dont-care-what-you-think-and-yet-you-think-i-also-set-up-a-mail-server-for-you-to-send-me-complaints@erewash-rag.co.uk</em>.
         </p>
-        
-        <p>
-          Thank you for reading the Fake News Gazette. Remember: if it sounds too good to be true, it probably is. And if it sounds too ridiculous to be true, it's probably one of our stories.
-        </p>
-        
-        <p>
-          <em>Keep laughing, keep reading, and never take us seriously.</em>
-        </p>
+
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const Header = () => {
       <div className="header-content">
         <Link to="/" className="logo">
           <Newspaper style={{ marginRight: '8px', display: 'inline' }} />
-          Fake News Gazette
+          Erewash Rag
         </Link>
         <nav className="nav">
           <Link to="/" className="nav-link">Home</Link>
