@@ -43,7 +43,7 @@ export const articles = [
   },
   {
     id: 2,
-    title: "Spying Brick-Based Resurrection of Local Culture Through the Eyes of a Drone",
+    title: "Brick-Based Resurrection of Local Culture Through the Eyes of a Drone",
     excerpt: "“The bricks will be reused where possible, and crushed where not. Either way, something will happen to them, which is important.”",
     content: `
       <p>In a move hailed as “visionary” by at least three people and a drone, the council has proudly unveiled drone shots of the partially demolished Galaxy Row cinema, now reborn as “a giant pile of potential.”</p>
