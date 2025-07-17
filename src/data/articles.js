@@ -37,8 +37,49 @@ export const articles = [
     `,
     category: "Local News",
     author: "AI Slop Generator A",
-    date: "2024-07-16",
-    image: "https://s3.eu-west-2.amazonaws.com/erewash-rag.co.uk/ai-slop-1.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAUUPTERMP7BI2AONM%2F20250716%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250716T224457Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aCWV1LXdlc3QtMiJHMEUCIEuXVop2OxJQvI0OCBZYcg%2BZJRlpbH%2Bg%2F0pEjIUhB0p0AiEAlIbwsvwr02UldcbdxDgP%2FM%2BlZUW%2FzdCh9vJKIOWiXtsq1gIIaBAEGgwzMTg4NzQzNTY1MTEiDC8V66FsubasfF20byqzAvjLFKpOgYemga944oDhngnd4yqgX%2Fh%2B9OJFHvj8jQGzWNYByiNRVkiNPLt4QikfKACJTuqiG2HKy8MRCFakwrn0HqxNKxgQuhdKW0Y%2FONlfQ0DY7Kc6mxrgz6fhzp63Sz6zr1cjyCdWVqxp8310wWoLRtAyZnL2ZK5OaNwKrxEofqNKXyqqjMTLegPUB5gHJum16y9a1uXFkcIrXVIJmgpO6Mh3HmN%2BZKhicNM1o8ytYP9oIhVpNsMxWHxRKEgpv9laokt5W3Bt0zsKG495z0SPrLeAuwvVb8DtzDh%2B6bg7BPklunLKQ093xGo0Xtwqrb%2B8kurg1f1U9yY3jYHr0n6IZ%2BLDH1Dt72xADsKFLCRELp7Z4jvHwwgymlitwqgv0Q8gkFyqitWW9s%2FSgOP5TtRoOVAwxrLgwwY6rQJFgTFslJ0lXkkhvoRKBCIGkE8RdSG2GmRF3fNmzCDw8lJqlsZycdC8rXG4e7vIQPP%2B0ntS%2Fq%2BTinHKnN60w%2BNOQzUxSGIPiUydFSXpF%2BZEHMrwuqqYi8lKvkXunxSOyWLceFas%2FCkgeniJPw%2BbneQNqwTGZn92Pl2vMq%2BLlaZV%2BED9zIv%2BkCyqanyYTJEw7dB47VwbC4nyOp4wHW0a%2BqA2a6ykIucpMy%2BQ3iSjWauXToHP67I5KU8GvMqa1ySV%2Fb2bU3C21Z8oyNj4T0ja2qBqjzICAl5xucfg2edk39w8p%2FC4eL4GM1Son6rbT6%2BXeni%2FA8JhAgWtvCDGLdJdpt5xJQFfWJqAU4sMIk2Ux6rQe%2Faf2f7DzDfZZDvEZOiAE2iNrNuew1xALcWmNm3%2B&X-Amz-Signature=7474586d81356e39f51f08df4a0a9c05377c316caca508d98c705fc735f26146&X-Amz-SignedHeaders=host&response-content-disposition=inline",
+    date: "2025-07-16",
+    image: "https://raw.githubusercontent.com/MickleByte/ai-image-repo/main/ai-slop-1.png",
+    featured: false
+  },
+  {
+    id: 2,
+    title: "Spying Brick-Based Resurrection of Local Culture Through the Eyes of a Drone",
+    excerpt: "“The bricks will be reused where possible, and crushed where not. Either way, something will happen to them, which is important.”",
+    content: `
+      <p>In a move hailed as “visionary” by at least three people and a drone, the council has proudly unveiled drone shots of the partially demolished Galaxy Row cinema, now reborn as “a giant pile of potential.”</p>
+
+      <p>The site, which was once a bustling cultural hub for teenagers pretending to enjoy Marvel movies, is being “carefully dismantled” by a firm called Total Reclaims Demolition — which sources say is either a demolition company or a 2003 Xbox game.</p>
+
+      <h2>Bricks: The New Heritage Currency</h2>
+      <p>Approximately 250,000 bricks are being harvested, presumably by hand, one emotional sigh at a time. These historic bricks — some of which may have once heard <em>Fast & Furious 5</em> through the walls — are being cleaned, sanctified, and prepared for their next life as <em>“townhouses nobody local can afford.”</em></p>
+
+      <blockquote>“I’m sure everyone in Long Eaton will be as delighted as I am to see these drone pictures,” said Richard Ledger, Chair of the Long Eaton Town Deal Board, who was reportedly pointing at a JPEG of rubble during the interview.</blockquote>
+
+      <h2>The Vision: Brick by Brick</h2>
+      <p>Future plans for the site include 16 flats, 4 townhouses, and “three business premises,” which sources close to AI News believe may be a Greggs, a vape shop, and a third Greggs.</p>
+
+      <p>Commercial Director Tom Spink, MRICS, added:</p>
+      <blockquote>“The bricks will be reused where possible, and crushed where not. Either way, something will happen to them, which is important.”</blockquote>
+
+      <p>The council has clarified that while the bricks have not been assigned to a specific project, they may one day end up in a tasteful development somewhere “brick-relevant.”</p>
+
+      <h2>Reaction on the Ground (Literally)</h2>
+      <ul>
+        <li><strong>Local resident, age 64:</strong> “I watched Star Wars in that cinema. Now I get to walk past a pile of its ashes on the way to Aldi.”</li>
+        <li><strong>Teenager with drone:</strong> “It’s good content. Got 600 likes.”</li>
+        <li><strong>AI Misinterpretation Bot:</strong> “Galaxy Row to be rebuilt entirely out of one long brick. Structure unstable. Proceed with civic optimism.”</li>
+      </ul>
+
+      <h2>The Future is Made of Rubble</h2>
+      <p>Councillor Curtis Howard, Lead Member for Town Centres, Regeneration and Brick Nostalgia, said:</p>
+      <blockquote>“I’m thrilled the legacy of this cinema will live on in brick form, which is the most sustainable kind of memory besides murals or commemorative Tupperware.”</blockquote>
+
+      <p>Plans for phase two include something called “civic uplift,” which sounds promising and may or may not involve additional bricks.</p>
+    `,
+    category: "Local News",
+    author: "AI Slop Generator A",
+    date: "2025-07-17",
+    image: "https://raw.githubusercontent.com/MickleByte/ai-image-repo/main/ai-slop-2.png",
     featured: true
   }
 ]; 
