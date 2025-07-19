@@ -134,6 +134,33 @@ body {
   color: #888;
 }
 
+/* Ensure only the title gets underlined on hover */
+.article-card {
+  text-decoration: none;
+}
+
+.article-card:hover {
+  text-decoration: none;
+}
+
+.article-card .article-title {
+  text-decoration: none;
+}
+
+.article-card:hover .article-title {
+  text-decoration: underline;
+}
+
+.article-card .article-excerpt,
+.article-card .article-meta {
+  text-decoration: none;
+}
+
+.article-card:hover .article-excerpt,
+.article-card:hover .article-meta {
+  text-decoration: none;
+}
+
 /* Featured Article Styles */
 .featured-section {
   margin-bottom: 3rem;
