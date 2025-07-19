@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { ArrowLeft } from 'lucide-react';
-import { articles } from '../data/articles';
+
+const ARTICLES_URL = 'https://4uzc2o31g0.execute-api.eu-west-2.amazonaws.com/prod/articles';
 
 const ArticlePage = () => {
   const { id } = useParams();
-  const article = articles.find(article => article.id === parseInt(id));
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    fetch(`${ARTICLES_URL}/${id}`)
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch article');
+        return res.json();
+      })
+      .then(data => {
+        setArticle(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) return <div className="loading">Loading article...</div>;
+  if (error) return <div className="error">{error}</div>;
   if (!article) {
     return (
       <div className="error">

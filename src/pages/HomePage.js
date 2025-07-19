@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
-import { articles } from '../data/articles';
+// import { articles } from '../data/articles'; // Remove this line
+
+const ARTICLES_URL = 'https://4uzc2o31g0.execute-api.eu-west-2.amazonaws.com/prod/articles';
 
 const HomePage = () => {
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(ARTICLES_URL)
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch articles');
+        return res.json();
+      })
+      .then(data => {
+        setArticles(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div className="loading">Loading articles...</div>;
+  if (error) return <div className="error">{error}</div>;
+
   const featuredArticle = articles.find(article => article.featured);
   const otherArticles = articles.filter(article => !article.featured);
 
@@ -22,7 +47,7 @@ const HomePage = () => {
               <span className="featured-category">{featuredArticle.category}</span>
               <h1 className="featured-title">{featuredArticle.title}</h1>
               <p className="featured-excerpt">{featuredArticle.excerpt}</p>
-              <Link to={`/article/${featuredArticle.id}`} className="read-more-btn">
+              <Link to={`/articles/${featuredArticle.id}`} className="read-more-btn">
                 Read Full Story
               </Link>
             </div>
@@ -45,7 +70,7 @@ const HomePage = () => {
 
 const ArticleCard = ({ article }) => {
   return (
-    <Link to={`/article/${article.id}`} className="article-card">
+    <Link to={`/articles/${article.id}`} className="article-card">
       <img 
         src={article.image} 
         alt={article.title}
