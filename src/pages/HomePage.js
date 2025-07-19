@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import { ARTICLES_ENDPOINT } from '../config/api';
 // import { articles } from '../data/articles'; // Remove this line
-
-const ARTICLES_URL = 'https://4uzc2o31g0.execute-api.eu-west-2.amazonaws.com/prod/articles';
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
@@ -11,7 +10,7 @@ const HomePage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(ARTICLES_URL)
+    fetch(ARTICLES_ENDPOINT)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch articles');
         return res.json();

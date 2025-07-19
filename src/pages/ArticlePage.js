@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { ArrowLeft } from 'lucide-react';
-
-const ARTICLES_URL = 'https://4uzc2o31g0.execute-api.eu-west-2.amazonaws.com/prod/articles';
+import { ARTICLES_ENDPOINT } from '../config/api';
 
 const ArticlePage = () => {
   const { id } = useParams();
@@ -12,7 +11,7 @@ const ArticlePage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${ARTICLES_URL}/${id}`)
+    fetch(`${ARTICLES_ENDPOINT}/${id}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch article');
         return res.json();
