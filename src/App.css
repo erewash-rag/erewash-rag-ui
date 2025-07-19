@@ -278,6 +278,41 @@ body {
   margin-bottom: 1.5rem;
 }
 
+/* Article Source Section */
+.article-source {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.article-source h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.article-source p {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.source-link {
+  display: inline-block;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-all;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.source-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
 .article-page-content h2 {
   font-size: 1.8rem;
   font-weight: 600;

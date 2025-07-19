@@ -67,6 +67,22 @@ const ArticlePage = () => {
           dangerouslySetInnerHTML={{ __html: article.content }}
         />
       </article>
+
+      {/* Source Section */}
+      {article.sourceUrl && (
+        <section className="article-source">
+          <h3>Source</h3>
+          <p>This article was generated based on information from the following source:</p>
+          <a 
+            href={article.sourceUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="source-link"
+          >
+            {article.sourceUrl}
+          </a>
+        </section>
+      )}
     </div>
   );
 };
