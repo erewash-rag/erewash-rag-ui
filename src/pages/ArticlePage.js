@@ -11,7 +11,8 @@ const ArticlePage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${ARTICLES_ENDPOINT}/${id}`)
+    const experimentParam = process.env.NODE_ENV === 'development' ? '?experiment=true' : '';
+    fetch(`${ARTICLES_ENDPOINT}/${id}${experimentParam}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch article');
         return res.json();
