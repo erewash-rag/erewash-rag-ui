@@ -84,6 +84,9 @@ body {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .article-card:hover {
@@ -98,11 +101,16 @@ body {
 }
 
 .article-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100%;
   padding: 1rem;
 }
 
 .article-category {
   display: inline-block;
+  max-width: 100%;
   background: #ff6b6b;
   color: white;
   padding: 0.25rem 0.75rem;
@@ -110,6 +118,8 @@ body {
   font-size: 0.8rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  white-space: nowrap;
+  align-self: flex-start;
 }
 
 .article-title {
@@ -127,6 +137,7 @@ body {
 }
 
 .article-meta {
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;

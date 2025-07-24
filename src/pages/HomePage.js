@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { ARTICLES_ENDPOINT } from '../config/api';
+import { Helmet } from 'react-helmet-async';
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
@@ -32,7 +33,22 @@ const HomePage = () => {
   const otherArticles = articles.filter(article => !article.featured);
 
   return (
-    <div className="home-page">
+    <>
+      <Helmet>
+        <title>Erewash Rag</title>
+        <meta name="description" content="Satirical local news blog - bringing humor to your neighborhood" />
+        <meta name="keywords" content="Erewash Rag, satirical news, local news, humor, blog, Erewash, UK, parody, entertainment" />
+        <link rel="canonical" href="https://erewash-rag.co.uk/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Erewash Rag" />
+        <meta property="og:description" content="Satirical local news blog - bringing humor to your neighborhood" />
+        <meta property="og:url" content="https://erewash-rag.co.uk/" />
+        <meta property="og:image" content="https://erewash-rag.co.uk/favicon.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Erewash Rag" />
+        <meta name="twitter:description" content="Satirical local news blog - bringing humor to your neighborhood" />
+        <meta name="twitter:image" content="https://erewash-rag.co.uk/favicon.svg" />
+      </Helmet>
       {/* Featured Article */}
       {featuredArticle && (
         <section className="featured-section">
@@ -63,7 +79,7 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
