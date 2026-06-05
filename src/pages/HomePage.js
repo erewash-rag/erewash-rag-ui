@@ -31,8 +31,9 @@ const HomePage = () => {
   if (loading) return <div className="loading">Loading articles...</div>;
   if (error) return <div className="error">{error}</div>;
 
-  const featuredArticle = articles.find(article => article.featured);
-  const otherArticles = articles.filter(article => !article.featured);
+  const sorted = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const featuredArticle = sorted[0];
+  const otherArticles = sorted.slice(1);
 
   return (
     <>
