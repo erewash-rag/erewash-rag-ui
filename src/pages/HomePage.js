@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { ARTICLES_ENDPOINT } from '../config/api';
 import { Helmet } from 'react-helmet-async';
+import { useExperiment } from '../context/ExperimentContext';
 
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { experiment } = useExperiment();
 
   useEffect(() => {
-    const experimentParam = process.env.NODE_ENV === 'development' ? '?experiment=true' : '';
+    const experimentParam = experiment ? '?experiment=true' : '';
     fetch(ARTICLES_ENDPOINT + experimentParam)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch articles');
@@ -24,7 +26,7 @@ const HomePage = () => {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [experiment]);
 
   if (loading) return <div className="loading">Loading articles...</div>;
   if (error) return <div className="error">{error}</div>;

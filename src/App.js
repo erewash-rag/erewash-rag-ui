@@ -5,10 +5,12 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ArticlePage from './pages/ArticlePage';
 import AboutPage from './pages/AboutPage';
+import { ExperimentProvider } from './context/ExperimentContext';
 import './App.css';
 
 function App() {
   return (
+    <ExperimentProvider>
     <Router>
       <div className="App">
         <Header />
@@ -22,6 +24,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </ExperimentProvider>
   );
 }
 

@@ -4,15 +4,17 @@ import { format } from 'date-fns';
 import { ArrowLeft } from 'lucide-react';
 import { ARTICLES_ENDPOINT } from '../config/api';
 import { Helmet } from 'react-helmet-async';
+import { useExperiment } from '../context/ExperimentContext';
 
 const ArticlePage = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { experiment } = useExperiment();
 
   useEffect(() => {
-    const experimentParam = process.env.NODE_ENV === 'development' ? '?experiment=true' : '';
+    const experimentParam = experiment ? '?experiment=true' : '';
     fetch(`${ARTICLES_ENDPOINT}/${id}${experimentParam}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch article');
@@ -26,7 +28,7 @@ const ArticlePage = () => {
         setError(err.message);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, experiment]);
 
   if (loading) return <div className="loading">Loading article...</div>;
   if (error) return <div className="error">{error}</div>;
