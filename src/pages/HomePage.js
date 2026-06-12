@@ -1,25 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { ARTICLES_ENDPOINT } from '../config/api';
 import { Helmet } from 'react-helmet-async';
 import { useExperiment } from '../context/ExperimentContext';
 
+const buildUrl = (pageNum, experiment) => {
+  const params = new URLSearchParams();
+  if (pageNum > 0) params.set('page', pageNum);
+  if (experiment) params.set('experiment', 'true');
+  const query = params.toString();
+  return query ? `${ARTICLES_ENDPOINT}?${query}` : ARTICLES_ENDPOINT;
+};
+
 const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
   const { experiment } = useExperiment();
+  const sentinelRef = useRef(null);
 
   useEffect(() => {
-    const experimentParam = experiment ? '?experiment=true' : '';
-    fetch(ARTICLES_ENDPOINT + experimentParam)
+    setArticles([]);
+    setCurrentPage(0);
+    setTotalPages(1);
+    setLoading(true);
+    setError(null);
+
+    fetch(buildUrl(0, experiment))
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch articles');
         return res.json();
       })
       .then(data => {
-        setArticles(data);
+        setArticles(data.articles);
+        setTotalPages(data.total_pages);
         setLoading(false);
       })
       .catch(err => {
@@ -28,12 +46,51 @@ const HomePage = () => {
       });
   }, [experiment]);
 
+  const loadMore = useCallback(() => {
+    if (loadingMore || currentPage >= totalPages - 1) return;
+
+    const nextPage = currentPage + 1;
+    setLoadingMore(true);
+
+    fetch(buildUrl(nextPage, experiment))
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch articles');
+        return res.json();
+      })
+      .then(data => {
+        setArticles(prev => [...prev, ...data.articles]);
+        setCurrentPage(nextPage);
+        setTotalPages(data.total_pages);
+        setLoadingMore(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoadingMore(false);
+      });
+  }, [loadingMore, currentPage, totalPages, experiment]);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) loadMore();
+      },
+      { rootMargin: '200px' }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [loadMore]);
+
   if (loading) return <div className="loading">Loading articles...</div>;
   if (error) return <div className="error">{error}</div>;
 
   const sorted = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
   const featuredArticle = sorted[0];
   const otherArticles = sorted.slice(1);
+  const hasMore = currentPage < totalPages - 1;
 
   return (
     <>
@@ -52,12 +109,12 @@ const HomePage = () => {
         <meta name="twitter:description" content="Satirical local news blog - bringing humor to your neighborhood" />
         <meta name="twitter:image" content="https://erewash-rag.co.uk/favicon.svg" />
       </Helmet>
-      {/* Featured Article */}
+
       {featuredArticle && (
         <section className="featured-section">
           <div className="featured-article">
-            <img 
-              src={featuredArticle.image} 
+            <img
+              src={featuredArticle.image}
               alt={featuredArticle.title}
               className="featured-image"
             />
@@ -73,7 +130,6 @@ const HomePage = () => {
         </section>
       )}
 
-      {/* Other Articles Grid */}
       <section className="articles-section">
         <h2>Latest Stories</h2>
         <div className="articles-grid">
@@ -81,6 +137,11 @@ const HomePage = () => {
             <ArticleCard key={article.id} article={article} />
           ))}
         </div>
+        <div ref={sentinelRef} />
+        {loadingMore && <div className="loading">Loading more stories...</div>}
+        {!hasMore && articles.length > 1 && (
+          <p className="loading">You&apos;ve reached the end</p>
+        )}
       </section>
     </>
   );
@@ -89,8 +150,8 @@ const HomePage = () => {
 const ArticleCard = ({ article }) => {
   return (
     <Link to={`/articles/${article.id}`} className="article-card">
-      <img 
-        src={article.image} 
+      <img
+        src={article.image}
         alt={article.title}
         className="article-image"
       />
@@ -107,4 +168,4 @@ const ArticleCard = ({ article }) => {
   );
 };
 
-export default HomePage; 
+export default HomePage;
