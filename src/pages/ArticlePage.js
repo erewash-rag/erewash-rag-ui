@@ -72,7 +72,7 @@ const ArticlePage = () => {
             <div className="article-page-meta">
               <span>By {article.author}</span>
               <span>•</span>
-              <span>{format(new Date(article.date), 'MMMM dd, yyyy')}</span>
+              <span>{format(new Date(article.date), 'dd MMMM yyyy')}</span>
             </div>
           </header>
 
